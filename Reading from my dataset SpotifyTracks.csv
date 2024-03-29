@@ -1,0 +1,4 @@
+#Reads the dataset.
+SpotifyTracks <- read.csv(file = "SpotifyTracks.csv", stringsAsFactors = FALSE)
+mydata <- SpotifyTracks
+View(mydata)
