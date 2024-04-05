@@ -1,1 +1,2 @@
-str(SpotifyTracks)
+#The following 1 line of code (or line 25) have been sourced from https://www.listendata.com/2014/06/data-exploration-using-r.html.
+#This shows the structure of my dataset.str(SpotifyTracks)
