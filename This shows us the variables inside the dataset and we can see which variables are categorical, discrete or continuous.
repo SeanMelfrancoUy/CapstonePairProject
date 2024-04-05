@@ -1,1 +1,2 @@
+#This shows us the variables inside the dataset and we can see which variables are either categorical, discrete or continuous.
 glimpse(SpotifyTracks)
