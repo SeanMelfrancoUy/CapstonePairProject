@@ -1,0 +1,10 @@
+#Name: Sean Melfranco Uy
+#Student Number: 2020471
+#Individual
+
+library(ggplot2)
+install.packages("gridExtra")
+library(gridExtra)
+library(dplyr)
+
+#This part is my Exploratory Data Analysis for my dataset SpotifyTracks.csv.
