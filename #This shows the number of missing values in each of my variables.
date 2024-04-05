@@ -1,0 +1,3 @@
+#The following 1 line of code (or line 29) have been sourced from https://www.listendata.com/2014/06/data-exploration-using-r.html.
+#This shows the number of missing values in each of my variables.
+colSums(is.na(SpotifyTracks))
