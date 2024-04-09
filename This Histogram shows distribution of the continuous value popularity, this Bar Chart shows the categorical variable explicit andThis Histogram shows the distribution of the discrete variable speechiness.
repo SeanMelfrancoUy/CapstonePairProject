@@ -1,0 +1,15 @@
+#Data Visualisation
+
+#Univariate Analysis
+
+#This Histogram shows distribution of the continuous value popularity. 
+ggplot(data = SpotifyTracks) + 
+  geom_histogram(mapping = aes(x = popularity), binwidth = 1.0)
+
+#This Bar Chart shows the categorical variable explicit.
+ggplot(SpotifyTracks) +
+  geom_bar(mapping = aes(x = explicit))
+
+#This Histogram shows the distribution of the discrete variable speechiness.
+ggplot(data = SpotifyTracks, mapping = aes (x = speechiness)) +
+  geom_histogram(binwidth = 0.01)
