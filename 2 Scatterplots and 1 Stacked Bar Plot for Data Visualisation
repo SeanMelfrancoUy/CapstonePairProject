@@ -1,0 +1,20 @@
+#This Scatterplot shows the relationship between two discrete variables tempo and liveness. 
+SpotifyTracks %>% 
+ggplot() +
+  geom_point(mapping = aes(x = tempo, y = liveness), color = "blue",
+size = 2) +
+  labs(title = "Scatteplot of Tempo vs Liveness", x = "tempo", y = "liveness")
+
+#This scatterplot shows the distribution between two discrete variables time_signature and valence.
+ggplot(data = SpotifyTracks) +
+  geom_point(
+    mapping = aes(x = time_signature, y = valence),
+    alpha = 1 / 100
+  )
+
+#This Stacked Bar Plot shows the composition between the discrete variable instrumentalness and the categorical variable explicit.
+SpotifyTracks %>%
+  ggplot() +
+  geom_bar(mapping = aes(x = explicit, fill = instrumentalness), color = "black") +
+  labs(title = "Stacked Bar Chart of instrumentalness By explicit", x = "explicit", y = "instrumentalness") +
+  coord_flip()
