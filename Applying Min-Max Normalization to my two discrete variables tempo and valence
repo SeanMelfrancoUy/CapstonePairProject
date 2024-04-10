@@ -1,0 +1,12 @@
+#Applying Min-Max Normalization for the discrete variables tempo and valence. 
+#tempo
+mmnorm.tempo <- (SpotifyTracks$tempo-
+                  min(SpotifyTracks$tempo))/(max(SpotifyTracks$tempo)-
+                                      min(SpotifyTracks$tempo))
+mmnorm.tempo
+
+#valence
+mmnorm.valence <- (SpotifyTracks$valence-
+                  min(SpotifyTracks$valence))/(max(SpotifyTracks$valence)-
+                                      min(SpotifyTracks$valence))
+mmnorm.valence
