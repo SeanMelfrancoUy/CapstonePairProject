@@ -1,0 +1,8 @@
+#Applying Inverse Square Root Scaling to the discrete variable instrumentalness and speechiness.
+#instrumentalness
+invsqrt_instrumentalness <- 1 / sqrt(SpotifyTracks$instrumentalness)
+invsqrt_instrumentalness
+
+#speechiness
+invsqrt_speechiness <- 1 / sqrt(SpotifyTracks$speechiness)
+invsqrt_speechiness
