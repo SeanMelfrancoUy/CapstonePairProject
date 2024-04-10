@@ -1,0 +1,42 @@
+#The following 20 lines of code (or lines 112 to 151) has been sourced from https://www.datacamp.com/tutorial/pca-analysis-r.
+#Appling PCA to my 12 discrete variables which are the audio features.
+install.packages("corrr")
+library('corrr')
+install.packages("ggcorrplot")
+library(ggcorrplot)
+install.packages("FactoMineR")
+library("FactoMineR")
+
+#Summary of my dataset.
+str(SpotifyTracks)
+
+#Checks for missing values.
+colSums(is.na(SpotifyTracks))
+
+#Creates my 12 discrete values into a new data and excludes the other variables.
+numerical_data <- SpotifyTracks[,9:19]
+head(numerical_data)
+
+#Normalises my new data.
+data_normalized <- scale(numerical_data)
+head(data_normalized)
+
+#Creates a correlation matrix for my new data.
+corr_matrix <- cor(data_normalized)
+ggcorrplot(corr_matrix)
+
+#Creates a PCA analysis for my new data.
+data.pca <- princomp(corr_matrix)
+summary(data.pca)
+
+#Exploring each column and how they relate.
+data.pca$loadings[, 1:2]
+
+#This Scree plot shows the importance of each principal component and the number of principal components it can retain.
+fviz_eig(data.pca, addlabels = TRUE)
+
+#This Biplot shows the similairites and differences between the variables and shows the impact they have on principal components.
+fviz_pca_var(data.pca, col.var = "black")
+
+#This Biplot shows how each variable is represented in a given component.
+fviz_cos2(data.pca, choice = "var", axes = 1:2)
