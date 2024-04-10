@@ -1,0 +1,5 @@
+#Applying Robust Scaler to the discrete variables danceability and key.
+library(robustbase)
+
+dancebility_robust <- (SpotifyTracks$danceability - median(SpotifyTracks$danceability)) / mad(SpotifyTracks$danceability)
+key_robust <- (SpotifyTracks$key - median(SpotifyTracks$key)) / mad(SpotifyTracks$key)
