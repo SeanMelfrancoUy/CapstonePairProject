@@ -4,5 +4,5 @@ natlog_acousticness <-log(SpotifyTracks$acousticness)
 natlog_acousticness
 
 #liveness
-natlog_acousticness <-log(SpotifyTracks$acousticness)
-natlog_acousticness
+natlog_liveness <-log(SpotifyTracks$liveness)
+natlog_liveness
