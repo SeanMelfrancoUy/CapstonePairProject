@@ -1,4 +1,4 @@
-#Applying Z-score Standardization for discrete variables energy and loudness. 
+#Applying Z-score Standardization for the discrete variables energy and loudness. 
 #energy
 zscore.energy <- (SpotifyTracks$energy -
                     mean(SpotifyTracks$energy))/sd(SpotifyTracks$energy)
