@@ -30,3 +30,7 @@ dfPCA = pd.concat([principalDf, df[['track_name']]], axis = 1)
 dfPCA.head()
 
 pca.explained_variance_ratio_
+
+df3 = dfPCA
+
+df3.head()
