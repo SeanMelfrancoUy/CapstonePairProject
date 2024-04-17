@@ -1,0 +1,32 @@
+df2 = df_without_outliers
+
+#The following code below has been sourced from https://builtin.com/machine-learning/pca-in-python.
+from sklearn.preprocessing import StandardScaler
+
+features = ['danceability', 'energy', 'loudness', 'acousticness']
+
+# Separating out the features
+x = df2.loc[:, features].values
+
+# Separating out the target
+y = df2.loc[:,['track_name']].values
+
+# Standardizing the features
+x = StandardScaler().fit_transform(x)
+
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=2)
+
+principalComponents = pca.fit_transform(x)
+
+principalDf = pd.DataFrame(data = principalComponents
+             , columns = ['principal component 1', 'principal component 2'])
+
+principalDf.head()
+
+dfPCA = pd.concat([principalDf, df[['track_name']]], axis = 1)
+
+dfPCA.head()
+
+pca.explained_variance_ratio_
