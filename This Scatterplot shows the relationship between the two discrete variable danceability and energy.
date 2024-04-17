@@ -1,0 +1,1 @@
+sns.scatterplot(data=df, x="danceability", y="energy")
