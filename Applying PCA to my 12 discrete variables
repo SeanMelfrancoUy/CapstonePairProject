@@ -1,42 +1,32 @@
-#The following 20 lines of code (or lines 112 to 151) has been sourced from https://www.datacamp.com/tutorial/pca-analysis-r.
-#Appling PCA to my 12 discrete variables which are the audio features.
-install.packages("corrr")
-library('corrr')
-install.packages("ggcorrplot")
-library(ggcorrplot)
-install.packages("FactoMineR")
-library("FactoMineR")
+#The following code below has been sourced from https://michael-fuchs-python.netlify.app/2020/08/21/the-data-science-process-crisp-dm/.
+obj_col = ['object']
+object_columns = list(df2.select_dtypes(include=obj_col).columns)
+df_categorical = df2[object_columns]
 
-#Summary of my dataset.
-str(SpotifyTracks)
+print()
+print('There are ' + str(df_categorical.shape[1]) + ' categorical columns within dataframe:')
 
-#Checks for missing values.
-colSums(is.na(SpotifyTracks))
+df_categorical.head()
 
-#Creates my 12 discrete values into a new data and excludes the other variables.
-numerical_data <- SpotifyTracks[,9:19]
-head(numerical_data)
+print('Values of the artists:')
+print()
+print(df2['artists'].value_counts())
 
-#Normalises my new data.
-data_normalized <- scale(numerical_data)
-head(data_normalized)
+print('--------------------------------------------')
 
-#Creates a correlation matrix for my new data.
-corr_matrix <- cor(data_normalized)
-ggcorrplot(corr_matrix)
+print('Values of the variable album_name:')
+print()
+print(df2['album_name'].value_counts())
 
-#Creates a PCA analysis for my new data.
-data.pca <- princomp(corr_matrix)
-summary(data.pca)
+print('--------------------------------------------')
 
-#Exploring each column and how they relate.
-data.pca$loadings[, 1:2]
+print('Values of the variable track_name:')
+print()
+print(df2['track_name'].value_counts())
 
-#This Scree plot shows the importance of each principal component and the number of principal components it can retain.
-fviz_eig(data.pca, addlabels = TRUE)
+print('--------------------------------------------')
 
-#This Biplot shows the similairites and differences between the variables and shows the impact they have on principal components.
-fviz_pca_var(data.pca, col.var = "black")
+print('Values of the variable track_genre:')
+print()
+print(df2['track_genre'].value_counts())
 
-#This Biplot shows how each variable is represented in a given component.
-fviz_cos2(data.pca, choice = "var", axes = 1:2)
