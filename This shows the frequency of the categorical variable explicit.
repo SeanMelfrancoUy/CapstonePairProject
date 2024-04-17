@@ -1,0 +1,2 @@
+#The following 1 line of code (or line 1) has been sourced from https://www.codecademy.com/learn/stats-summary-statistics-for-categorical-data/modules/stats-summary-statistics-for-categorical-data/cheatsheet.
+df['explicit'].value_counts()
