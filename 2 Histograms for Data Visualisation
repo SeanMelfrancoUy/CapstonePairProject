@@ -1,7 +1,0 @@
-#This Histogram shows the distribution of the discrete variable loudness.
-ggplot(data = SpotifyTracks, mapping = aes (x = loudness)) +
-  geom_histogram(binwidth = 0.01)
-
-#This Histogram shows the distribution of the discrete variable acousticness.
-ggplot(SpotifyTracks) +
-  geom_histogram(mapping = aes(x = acousticness), binwidth = 0.5) 
