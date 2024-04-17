@@ -1,2 +1,0 @@
-#This shows the summary statistics of my dataset.
-summary(SpotifyTracks)
