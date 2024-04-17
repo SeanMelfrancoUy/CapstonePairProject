@@ -1,8 +1,0 @@
-#Applying Natural Log Scaling to the discrete variable acousticness and liveness.
-#acousticness
-natlog_acousticness <-log(SpotifyTracks$acousticness)
-natlog_acousticness
-
-#liveness
-natlog_liveness <-log(SpotifyTracks$liveness)
-natlog_liveness
