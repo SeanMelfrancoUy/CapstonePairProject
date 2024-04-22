@@ -1,9 +1,0 @@
-sns.displot(df2, x="energy", bins=20)
-
-sns.displot(df2, x="loudness", bins=20)
-
-#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.hackersrealm.net/post/standardize-data-using-standard-scalar.
-for col in ['energy', 'loudness']:
-    df2[col] = (df2[col] - df2[col].mean()) / df2[col].std()
-
-df2.head()
