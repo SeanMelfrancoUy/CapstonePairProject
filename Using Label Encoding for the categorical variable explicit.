@@ -1,0 +1,21 @@
+#The following code below has been sourced from https://michael-fuchs-python.netlify.app/2020/08/21/the-data-science-process-crisp-dm/.
+from sklearn.preprocessing import LabelBinarizer
+
+encoder_explicit = LabelBinarizer()
+
+# Application of the LabelBinarizer
+explicit_encoded = encoder_explicit.fit_transform(df2.explicit.values.reshape(-1,1))
+
+# Insertion of the coded values into the original data set
+df2['explicit_encoded'] = explicit_encoded
+
+# Delete the original column to avoid duplication
+df2 = df2.drop(['explicit'], axis=1)
+
+# Getting the exact coding and show new dataframe
+print(encoder_explicit.classes_)
+print('Codierung: False=0, True=1')
+print('-----------------------------')
+print()
+print('New Data Frame:')
+df2.head()
