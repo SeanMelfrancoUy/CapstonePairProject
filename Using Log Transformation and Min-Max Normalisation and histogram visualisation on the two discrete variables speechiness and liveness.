@@ -1,0 +1,24 @@
+sns.displot(df2, x="speechiness", bins=20)
+
+sns.displot(df2, x="liveness", bins=20)
+
+#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.codecademy.com/article/data-transformations-for-multiple-linear-regression.
+df2['speechiness'] = np.log(df2.speechiness)
+print(df2['speechiness'].head())
+
+#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.codecademy.com/article/data-transformations-for-multiple-linear-regression.
+df2['liveness'] = np.log(df2.liveness)
+print(df2['liveness'].head())
+
+#The following code below has been sourced from https://medium.com/@siddharthverma.er.cse/data-transformation-techniques-with-python-elevate-your-data-game-21fcc7442cc2.
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df2[['speechiness', 'liveness']] = scaler.fit_transform(df2[['speechiness', 'liveness']])
+
+df2['speechiness'].head()
+
+df2['liveness'].head()
+
+sns.displot(df2, x="speechiness", bins=20)
+
+sns.displot(df2, x="liveness", bins=20)
