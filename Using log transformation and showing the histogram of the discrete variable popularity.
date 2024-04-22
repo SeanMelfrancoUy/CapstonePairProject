@@ -1,0 +1,7 @@
+sns.displot(df, x="popularity", bins=20)
+
+#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.codecademy.com/article/data-transformations-for-multiple-linear-regression.
+df2['popularity'] = np.log(df2.popularity)
+print(df2['popularity'].head())
+
+sns.displot(df2, x="popularity", bins=20)
