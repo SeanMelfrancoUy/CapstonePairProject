@@ -1,0 +1,12 @@
+sns.displot(df2, x="duration_ms", bins=20)
+
+sns.displot(df2, x="loudness", bins=20)
+
+#The following code below has been sourced from https://medium.com/@siddharthverma.er.cse/data-transformation-techniques-with-python-elevate-your-data-game-21fcc7442cc2.
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df2[['duration_ms', 'loudness']] = scaler.fit_transform(df2[['duration_ms', 'loudness']])
+
+df2['duration_ms'].head()
+
+df2['loudness'].head()
