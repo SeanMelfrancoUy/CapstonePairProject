@@ -3,8 +3,7 @@ df2 = df_without_outliers
 #The following code below has been sourced from https://builtin.com/machine-learning/pca-in-python.
 from sklearn.preprocessing import StandardScaler
 
-features = ['danceability', 'energy', 'loudness', 'acousticness']
-
+features = ['popularity', 'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo']
 # Separating out the features
 x = df2.loc[:, features].values
 
