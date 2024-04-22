@@ -1,0 +1,20 @@
+sns.displot(df2, x="danceability", bins=20)
+
+sns.displot(df2, x="energy", bins=20)
+
+#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.codecademy.com/article/data-transformations-for-multiple-linear-regression.
+df2['energy'] = np.sqrt(df2.energy)
+print(df2['energy'].head())
+
+#The following 2 lines of code (or lines 2 to 3) has been sourced from https://www.hackersrealm.net/post/standardize-data-using-standard-scalar.
+for col in ['danceability', 'energy']:
+    df2[col] = (df2[col] - df2[col].mean()) / df2[col].std()
+
+df2['danceability'].head()
+
+df2['energy'].head()
+
+sns.displot(df2, x="energy", bins=20)
+
+
+
