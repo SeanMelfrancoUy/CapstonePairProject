@@ -45,6 +45,7 @@ df2 = df2.drop(['track_id'], axis=1)
 
 df2.head()
 
+#The following code below has been sourced from https://michael-fuchs-python.netlify.app/2020/08/21/the-data-science-process-crisp-dm/.
 def missing_values_table(df2):
         # Total missing values
         mis_val = df2.isnull().sum()
