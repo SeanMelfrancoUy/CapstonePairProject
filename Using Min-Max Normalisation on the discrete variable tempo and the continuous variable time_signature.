@@ -1,8 +1,0 @@
-#The following code below has been sourced from https://medium.com/@siddharthverma.er.cse/data-transformation-techniques-with-python-elevate-your-data-game-21fcc7442cc2.
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-df2[['tempo', 'time_signature']] = scaler.fit_transform(df2[['tempo', 'time_signature']])
-
-df2['tempo'].head()
-
-df2['time_signature'].head()
