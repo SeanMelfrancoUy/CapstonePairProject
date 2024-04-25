@@ -1,0 +1,49 @@
+df2['popularity'].value_counts()
+
+df2['track_name'].value_counts()
+
+df2['track_genre'].value_counts()
+
+#The following code below has been sourced from https://www.youtube.com/watch?v=txMdrV1Ut64&t=2637s.
+track_name_grp = df2.groupby(['track_name'])
+
+track_name_grp.get_group('Run Rudolph Run')
+
+filt = df2['track_name'] == 'Run Rudolph Run'
+df2.loc[filt] ['track_genre'].value_counts()
+
+track_name_grp['popularity'].value_counts().head(50)
+
+track_name_grp['popularity'].value_counts().loc['Run Rudolph Run']
+
+track_name_grp['popularity'].value_counts(normalize=True).loc['Run Rudolph Run']
+
+track_name_grp['popularity'].mean()
+
+track_name_grp['popularity'].mean().loc['Run Rudolph Run']
+
+track_name_grp['popularity'].agg(['median', 'mean'])
+
+track_name_grp['popularity'].agg(['median', 'mean']).loc['Run Rudolph Run']
+
+filt = df2['track_name'] == 'Run Rudolph Run'
+df2.loc[filt] ['track_genre'].str.contains('blues')
+
+filt = df2['track_name'] == 'Run Rudolph Run'
+df2.loc[filt] ['track_genre'].str.contains('blues').sum()
+
+track_name_grp['track_genre'].apply(lambda x: x.str.contains('blues').sum()).head(50)
+
+track_name_tracks = df2['track_name'].value_counts()
+track_name_tracks
+
+track_name_dance = track_name_grp['track_genre'].apply(lambda x: x.str.contains('dance').sum())
+track_name_dance
+
+dance_df2 = pd.concat([track_name_tracks, track_name_dance], axis='columns', sort=False)
+dance_df2.head(50)
+
+dance_df2.rename(columns={'count': 'NumOfTracks', 'track_genre': 'NumOfDance'}, inplace=True)
+
+dance_df2.head(50)
+
