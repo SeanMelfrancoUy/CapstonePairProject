@@ -5,6 +5,6 @@ import seaborn as sns
 from scipy import stats
 sns.set()
 
-df = pd.read_csv("/Users/seanuy/CapstonePairProject(2020471)/SpotifyTracks.csv")
+df = pd.read_csv("SpotifyTracks.csv")
 
 df.head()
