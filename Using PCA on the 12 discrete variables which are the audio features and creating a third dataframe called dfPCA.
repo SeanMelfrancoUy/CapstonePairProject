@@ -1,14 +1,14 @@
-df2 = df_without_outliers
+df2trackgenre.head()
 
 #The following code below has been sourced from https://builtin.com/machine-learning/pca-in-python.
 from sklearn.preprocessing import StandardScaler
 
 features = ['popularity', 'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo']
 # Separating out the features
-x = df2.loc[:, features].values
+x = df2trackgenre.loc[:, features].values
 
 # Separating out the target
-y = df2.loc[:,['track_name']].values
+y = df2trackgenre.loc[:,['track_genre']].values
 
 # Standardizing the features
 x = StandardScaler().fit_transform(x)
@@ -24,7 +24,7 @@ principalDf = pd.DataFrame(data = principalComponents
 
 principalDf.head()
 
-dfPCA = pd.concat([principalDf, df[['track_name']]], axis = 1)
+dfPCA = pd.concat([principalDf, df[['track_genre']]], axis = 1)
 
 dfPCA.head()
 
