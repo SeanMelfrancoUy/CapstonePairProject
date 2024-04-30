@@ -1,0 +1,22 @@
+# Create a dictionary how the observations should be coded
+view_dict = {'rock' : 0,
+             'acoustic' : 1,
+             'disco' : 2,
+             'opera' : 3,
+             'piano': 4}
+
+# Map the dictionary on the column view and store the results in a new column
+df2trackgenre['track_genre_encoded'] = df2trackgenre.track_genre.map(view_dict)
+
+# Delete the original column to avoid duplication
+df2trackgenre = df2trackgenre.drop(['track_genre'], axis=1)
+
+
+print('New Data Frame:')
+df2trackgenre.head()
+
+df2trackgenre['track_genre_encoded'].unique()
+
+df2trackgenre['track_genre_encoded'].value_counts()
+
+df2 = df2trackgenre
