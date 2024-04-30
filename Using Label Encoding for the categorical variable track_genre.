@@ -1,3 +1,4 @@
+##The following code below has been sourced from https://michael-fuchs-python.netlify.app/2020/08.
 # Create a dictionary how the observations should be coded
 view_dict = {'rock' : 0,
              'acoustic' : 1,
