@@ -1,0 +1,11 @@
+df2trackgenre[df2trackgenre['track_genre'].isin(['opera', 'rock'])]
+
+df2twogenre = df2trackgenre[df2trackgenre['track_genre'].isin(['opera', 'rock'])]
+
+df2twogenre['track_genre'].unique()
+
+df2twogenre['track_genre'].value_counts()
+
+df2 = df2twogenre
+
+df2.head()
