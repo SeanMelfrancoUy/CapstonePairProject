@@ -24,7 +24,7 @@ principalDf = pd.DataFrame(data = principalComponents
 
 principalDf.head()
 
-dfPCA = pd.concat([principalDf, df[['track_genre']]], axis = 1)
+dfPCA = pd.concat([principalDf, df2trackgenre[['track_genre']]], axis = 1)
 
 dfPCA.head()
 
