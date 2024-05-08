@@ -1,0 +1,44 @@
+#The following code below has been sourced from https://www.linkedin.com/pulse/improve-model-hyperparameter-tuning-k-nearest-muctary-abdallah-1e.
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+
+#split dataset in features and target variable
+feature_cols = ['tempo', 'popularity', 'energy', 'loudness', 'liveness', 'valence', 'danceability', 'instrumentalness', 'acousticness', 'speechiness', 'mode', 'key']
+X = df2[feature_cols] # Features
+y = df2.track_genre_encoded # Target variable
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Define the hyperparameter grid
+param_grid = {'n_neighbors': np.arange(1, 11),
+              'weights': ['uniform', 'distance'],
+              'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+              'metric': ['euclidean', 'cosine', 'manhattan'],
+              'p': [1,2]}
+
+# Define the KNN classifier
+knn = KNeighborsClassifier()
+
+# Define the grid search object
+grid = GridSearchCV(knn, param_grid, cv=5, scoring='accuracy')
+
+# Fit the grid search object to the training data
+grid.fit(X_train, y_train)
+
+# Print the best hyperparameters and corresponding accuracy
+print("Best Hyperparameters:", grid.best_params_)
+print("Best Accuracy:", grid.best_score_)
+
+# Train and evaluate the model with the best hyperparameters
+best_knn = KNeighborsClassifier(n_neighbors=grid.best_params_['n_neighbors'],
+                                 weights=grid.best_params_['weights'],
+                                 algorithm=grid.best_params_['algorithm'],
+                                 metric=grid.best_params_['metric'],
+                                 p=grid.best_params_['p'])
+best_knn.fit(X_train, y_train)
+y_pred = best_knn.predict(X_test)
+accuracy = np.mean(y_pred == y_test)
+print("Accuracy:", accuracy)
