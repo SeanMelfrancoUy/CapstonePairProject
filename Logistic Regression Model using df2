@@ -1,0 +1,36 @@
+#The following code below has been sourced from https://www.datacamp.com/tutorial/understanding-logistic-regression-python.
+#split dataset in features and target variable
+feature_cols = ['tempo', 'popularity', 'energy', 'loudness', 'liveness', 'valence', 'danceability', 'instrumentalness', 'acousticness', 'speechiness', 'mode', 'key']
+X = df2[feature_cols] # Features
+y = df2.track_genre_encoded # Target variable
+
+# split X and y into training and testing sets
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=16)
+
+# import the class
+from sklearn.linear_model import LogisticRegression
+
+# instantiate the model (using the default parameters)
+logreg = LogisticRegression(random_state=42, 
+                            C=0.1,
+                            penalty='l1',
+                            solver='saga')
+
+# fit the model with data
+logreg.fit(X_train, y_train)
+
+y_pred = logreg.predict(X_test)
+
+#The following code below has been sourced from https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html.
+trackgenre_prediction = pd.Series(y_pred).value_counts()
+
+#The following code below has been sourced from https://www.geeksforgeeks.org/bar-plot-in-matplotlib/.
+genre_prediction.plot(kind='bar', color=['red','blue'])
+plt.title('Distribution Of Track Genre Predictions')
+plt.xlabel('Track Genre')
+plt.ylabel('Number of Genre Predictions')
+plt.xticks([0,1], ['Rock','Opera'])
+plt.legend()
+plt.show()
