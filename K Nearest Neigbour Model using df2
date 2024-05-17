@@ -24,10 +24,10 @@ knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
 #The following code below has been sourced from https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html.
-trackgenre_prediction = pd.Series(y_pred).value_counts()
+trackgenres_prediction = pd.Series(y_pred).value_counts()
 
 #The following code below has been sourced from https://www.geeksforgeeks.org/bar-plot-in-matplotlib/.
-genre_prediction.plot(kind='bar', color=['red','blue'])
+trackgenres_prediction.plot(kind='bar', color=['red','blue'])
 plt.title('Distribution Of Track Genre Predictions')
 plt.xlabel('Track Genre')
 plt.ylabel('Number of Genre Predictions')
