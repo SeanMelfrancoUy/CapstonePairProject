@@ -27,7 +27,7 @@ y_pred = logreg.predict(X_test)
 trackgenre_prediction = pd.Series(y_pred).value_counts()
 
 #The following code below has been sourced from https://www.geeksforgeeks.org/bar-plot-in-matplotlib/.
-genre_prediction.plot(kind='bar', color=['red','blue'])
+trackgenre_prediction.plot(kind='bar', color=['red','blue'])
 plt.title('Distribution Of Track Genre Predictions')
 plt.xlabel('Track Genre')
 plt.ylabel('Number of Genre Predictions')
