@@ -1,4 +1,4 @@
-#The following code below has been sourced from https://www.datacamp.com/tutorial/svm-classification-scikit-learn-python.
+#The following code below has been sourced from https://www.datacamp.com/tutorial/understanding-logistic-regression-python.
 #split dataset in features and target variable
 feature_cols = ['tempo', 'popularity', 'energy', 'loudness', 'liveness', 'valence', 'danceability', 'instrumentalness', 'acousticness', 'speechiness', 'mode', 'key']
 X = df2[feature_cols] # Features
